@@ -1,0 +1,22 @@
+@import 'normalize';
+
+body {
+    background-color: #F0F0F0;
+    font-family: 'Helvetica', sans-serif;
+}
+header {
+    background-color: #D7E0D8;
+    display: flex;
+    padding: 20px;
+    border-bottom: 10px solid #DDDDDD;    
+    justify-content: space-between;
+    h1 {
+        margin: 0;
+        padding: 0;
+        color: #fff;
+        font-family: 'Helvetica', sans-serif;
+    }
+}
+main {
+    padding: 0 20px;    
+}
