@@ -7,7 +7,7 @@ const Field = ({ name, label, value, onChange, type }) => (
                name={ name }
                type={ type }
                value={ value }
-               onChange={ onChange } 
+               onChange={ onChange }
         />
     </div>
 );

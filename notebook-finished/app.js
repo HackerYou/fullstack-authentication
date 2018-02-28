@@ -36,7 +36,7 @@ app.post('/api/signup', (req, res, next) => {
   const newUser = new User({
     name: req.body.name,
     email: req.body.email,
-  }); 
+  });
 
   User.register(newUser, req.body.password, (err, user) => {
     if (err) {

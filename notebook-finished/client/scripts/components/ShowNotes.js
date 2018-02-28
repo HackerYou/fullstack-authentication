@@ -5,6 +5,7 @@ class ShowNotes extends React.Component {
         super();
         this.state = {
             notes: [],
+            ready: false
         };
     }
     componentWillMount() {
@@ -12,21 +13,34 @@ class ShowNotes extends React.Component {
         fetch(`/api/notes/${this.props.user._id}`)
             .then((res) => res.json())
             .then((notes) => {
-                // 2. Store them in the state                
+                // 2. Store them in the state
                 this.setState({
                     notes,
+                }, () => {
+                  this.setState({
+                    ready: true
+                  })
                 });
             });
 
     }
 
     render() {
-        const showNote = (note) => <li>{note.title} - {note.description}</li>
-        return (
-            <ul>
-                {this.state.notes.map(showNote)}
-            </ul>
-        );
+        if (this.state.ready) {
+          return (
+              <ul>
+                {this.state.notes.map((note, i) => {
+                  return (
+                    <li key={i}>
+                      {note.title} - {note.description}
+                    </li>
+                  )
+                })}
+              </ul>
+          );
+        } else {
+          return null
+        }
     }
 }
 
