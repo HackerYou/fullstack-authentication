@@ -19,6 +19,7 @@
     "gulp-plumber": "^1.2.0",
     "gulp-sass": "^3.1.0",
     "mongoose": "^5.0.7",
+    "nodemon": "^1.17.1",
     "passport": "^0.4.0",
     "passport-local-mongoose": "^4.5.0",
     "react": "^16.2.0",
@@ -26,8 +27,13 @@
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "concurrently": "^3.5.1"
+  },
   "scripts": {
+    "client": "gulp",
+    "server": "nodemon app.js",
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Simon Bloom and Ryan Brunner",
